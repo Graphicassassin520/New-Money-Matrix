@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Matrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="container">
+        <header>
+            <a href="#">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="#85bb65" stroke-width="2"/>
+                    <path d="M10 20 L20 20 L20 30" stroke="#85bb65" stroke-width="2"/>
+                    <path d="M30 20 L20 20 L20 10" stroke="#85bb65" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="2" fill="#85bb65"/>
+                    <circle cx="20" cy="30" r="2" fill="#85bb65"/>
+                    <circle cx="20" cy="10" r="2" fill="#85bb65"/>
+                </svg>
+                <span>Money Matrix</span>
+            </a>
+            <div id="currentDateTime"></div>
+        </header>
+        <section class="month-navigation section">
+            <h2>Month: <span id="currentMonth"></span></h2>
+            <button onclick="prevMonth()" class="action-btn">Previous Month</button>
+            <button onclick="nextMonth()" class="action-btn">Next Month</button>
+        </section>
+        <section class="income-section section">
+            <h2>Monthly Income</h2>
+            <input type="number" id="incomeAmount" placeholder="Enter amount in dollars" step="0.01">
+            <button onclick="setIncome()" class="action-btn">Set Income</button>
+        </section>
+        <section class="savings-goal-section section">
+            <h2>Savings Goal</h2>
+            <input type="number" id="savingsGoal" placeholder="Enter target savings" step="0.01">
+            <button onclick="setSavingsGoal()" class="action-btn">Set Goal</button>
+        </section>
+        <section class="add-bill-section section">
+            <h2>Add Bill</h2>
+            <input type="text" id="billName" placeholder="Bill Name">
+            <input type="number" id="billAmount" placeholder="Amount in dollars" step="0.01">
+            <input type="date" id="billDate">
+            <select id="billCategory">
+                <option value="Housing">Housing</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Other">Other</option>
+            </select>
+            <button onclick="addBill()" class="action-btn">Add Bill</button>
+        </section>
+        <section class="budget-overview section">
+            <h2>Budget Overview</h2>
+            <div id="budgetOutput" class="budget-output"></div>
+            <canvas id="budgetChart" width="400" height="200"></canvas>
+        </section>
+        <section class="achievements section">
+            <h2>Achievements</h2>
+            <div id="achievementList"></div>
+        </section>
+        <section class="records section">
+            <h2>Personal Records</h2>
+            <div id="recordsDisplay"></div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
